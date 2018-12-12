@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="32dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" tools:ignore="RtlHardcoded"/>
     <EditText
             android:layout_width="351dp"
             android:layout_height="wrap_content"
@@ -24,10 +24,10 @@
             android:layout_marginRight="16dp"
             android:inputType="textPersonName" android:singleLine="false"
             app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintHorizontal_bias="0.0"
-            android:autofillHints="" tools:targetApi="o"/>
+            android:autofillHints=""/>
 
     <TextView
-            android:text="@string/label_cpf"
+            android:text="CPF:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView2" app:layout_constraintTop_toTopOf="parent"
@@ -43,9 +43,9 @@
             android:layout_marginRight="16dp"
             android:inputType="text" android:singleLine="false"
             app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintHorizontal_bias="0.0"
-            android:importantForAutofill="no"/>
+    />
     <TextView
-            android:text="@string/label_birth"
+            android:text="Data de Nascimento:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3" app:layout_constraintTop_toTopOf="parent"
@@ -61,7 +61,7 @@
             android:layout_marginRight="16dp"
             android:inputType="text" android:singleLine="false"
             app:layout_constraintTop_toBottomOf="@+id/textView3" app:layout_constraintHorizontal_bias="0.0"
-            android:autofillHints=""/>
+    />
 
     <Button
             android:text="Salvar"

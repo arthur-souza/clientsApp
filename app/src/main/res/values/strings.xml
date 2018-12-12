@@ -2,4 +2,7 @@
     <string name="app_name">Sistema de Clientes</string>
     <string name="activity_register">Adicionar Cliente</string>
     <string name="activity_clients">Clientes</string>
+    <string name="label_name">Nome:</string>
+    <string name="label_cpf">CPF:</string>
+    <string name="label_birth">Data de Nascimento:</string>
 </resources>
