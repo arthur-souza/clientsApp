@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,6 +22,24 @@ class RegisterActivity : AppCompatActivity() {
         // Adiciona um evento no botão de cancelar para voltar par tela inicial
         btnCancel.setOnClickListener {
             super.onBackPressed()
+        }
+
+        // Adicona evento no botão de salvar
+        btnSave.setOnClickListener {
+            var name = txtName.text.toString()
+            var cpf = txtCpf.text.toString()
+            var dateBirth = txtBirth.text.toString()
+
+            // Verifica de todos os campos foram preenchidos
+            if (name.length > 0 && cpf.length > 0 && dateBirth.length > 0) {
+                var client = Client(name, cpf, dateBirth) // Criando objeto cliente
+                var db = DataBaseHandler(this) // Criando conexão com banco de dados
+                db.insertData(client) // Inserindo dados no banco
+
+                super.onBackPressed() // Voltando para tela inicial
+            } else {
+                Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
