@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" android:label="@string/ativity_register">
+        <activity
+                android:name=".RegisterActivity"
+                android:label="@string/activity_register">
+        </activity>
+        <activity
+                android:name=".ClientsActivity"
+                android:label="@string/activity_clients">
         </activity>
     </application>
 
