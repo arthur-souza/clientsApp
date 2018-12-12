@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sistema de Clientes</string>
+    <string name="ativity_register">Adicionar Cliente</string>
 </resources>
