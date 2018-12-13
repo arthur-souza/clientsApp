@@ -33,6 +33,7 @@ class DataBaseHandler(var context : Context) : SQLiteOpenHelper(context, DB_NAME
         this.onCreate(db) // Criando o banco de dados novamente;
     }
 
+    /* Função responsável por inserir novos dados no banco */
     fun insertData(client : Client) {
         val db = this.writableDatabase
         var cv = ContentValues()
@@ -51,6 +52,36 @@ class DataBaseHandler(var context : Context) : SQLiteOpenHelper(context, DB_NAME
         else
             // Exibindo mensagem de sucesso
             Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show()
+    }
+
+    /* Função responsável por recuperar os dados no banco */
+    fun getData(): ArrayList<Client> {
+        val clientList = ArrayList<Client>() // Criando lista de clientes
+        val db = this.writableDatabase // conectando com banco de dados;
+        val query = "SELECT * FROM " + TABLE_NAME // Criando a query de consulta
+        val clients = db.rawQuery(query, null) // rodando a query no banco de dados
+
+        /* Verificando se existe dados */
+        if (clients != null) {
+            clients.moveToFirst()
+
+            /* Percorrendo os dados do banco para inserir na lista de clientes */
+            while (clients.moveToNext()) {
+                val client = Client() // Criando o objeto cliente
+
+                /* Popula o objeto cliente com os dados do banco de dados */
+                client.id = clients.getString(clients.getColumnIndex(COL_ID)).toInt()
+                client.name = clients.getString(clients.getColumnIndex(COL_NAME))
+                client.cpf = clients.getString(clients.getColumnIndex(COL_CPF))
+                client.dateBirth = clients.getString(clients.getColumnIndex(COL_DATEBIRTH))
+
+                /* Inserindo o objero cliente no array de clientes */
+                clientList.add(client)
+            }
+        }
+
+        clients.close()
+        return clientList
     }
 
 }

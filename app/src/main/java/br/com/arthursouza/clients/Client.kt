@@ -6,6 +6,8 @@ class Client {
     var cpf : String = ""
     var dateBirth : String = ""
 
+    constructor()
+
     constructor(name: String, cpf: String, dateBirth: String) {
         this.name = name
         this.cpf = cpf

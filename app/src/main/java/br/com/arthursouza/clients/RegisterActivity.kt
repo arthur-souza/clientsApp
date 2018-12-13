@@ -21,6 +21,13 @@ class RegisterActivity : AppCompatActivity() {
 
         // Adiciona um evento no botão de cancelar para voltar par tela inicial
         btnCancel.setOnClickListener {
+//            val db = DataBaseHandler(this);
+//            val data = db.getData()
+//
+//            for (index in data) {
+//                println("name: ${index.name}")
+//            }
+
             super.onBackPressed()
         }
 
@@ -32,8 +39,8 @@ class RegisterActivity : AppCompatActivity() {
 
             // Verifica de todos os campos foram preenchidos
             if (name.length > 0 && cpf.length > 0 && dateBirth.length > 0) {
-                var client = Client(name, cpf, dateBirth) // Criando objeto cliente
-                var db = DataBaseHandler(this) // Criando conexão com banco de dados
+                val client = Client(name, cpf, dateBirth) // Criando objeto cliente
+                val db = DataBaseHandler(this) // Criando conexão com banco de dados
                 db.insertData(client) // Inserindo dados no banco
 
                 super.onBackPressed() // Voltando para tela inicial
