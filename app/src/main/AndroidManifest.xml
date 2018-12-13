@@ -24,6 +24,8 @@
                 android:name=".ClientsActivity"
                 android:label="@string/activity_clients">
         </activity>
+        <activity android:name=".ClientInfo" android:label="Cliente">
+        </activity>
     </application>
 
 </manifest>

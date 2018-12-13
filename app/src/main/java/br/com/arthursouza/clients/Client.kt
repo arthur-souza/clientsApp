@@ -1,6 +1,8 @@
 package br.com.arthursouza.clients
 
-class Client {
+import java.io.Serializable
+
+class Client : Serializable{
     var id : Int = 0
     var name : String = ""
     var cpf : String = ""

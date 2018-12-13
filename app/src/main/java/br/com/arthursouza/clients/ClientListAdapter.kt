@@ -1,5 +1,6 @@
 package br.com.arthursouza.clients
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import android.widget.TextView
 class ClientListAdapter(private var clients: ArrayList<Client>): RecyclerView.Adapter<ClientListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.activity_item_client, parent, false))
-
 
     override fun getItemCount(): Int  = clients.count()
 
@@ -23,7 +23,9 @@ class ClientListAdapter(private var clients: ArrayList<Client>): RecyclerView.Ad
         cpf.text = clients[position].cpf
 
         btnShowClient.setOnClickListener {
-            println("Exibir Informação")
+            val intent = Intent(holder.view.context, ClientInfo::class.java)
+            intent.putExtra("client", clients[position])
+            holder.view.context.startActivity(intent)
         }
     }
 
